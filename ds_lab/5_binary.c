@@ -1,33 +1,33 @@
-#include <stdio.h>
+#include <stdio.h> 
 
 int main() {
     int c, first, last, middle, n, search, array[100];
 
-    printf("Enter number of elements: ");
+    printf("Enter number of elements\n"); 
     scanf("%d", &n);
 
-    printf("Enter %d integers in sorted order:\n", n);
+    printf("Enter %d integers\n", n);
     for (c = 0; c < n; c++) {
-        scanf("%d", &array[c]); // Input the sorted array elements
+        scanf("%d", &array[c]);
     }
-
-    printf("Enter value to find: ");
+    
+    printf("Enter value to find\n"); 
     scanf("%d", &search);
 
-    first = 0;
+    first = 0; 
     last = n - 1;
     middle = (first + last) / 2;
 
     while (first <= last) {
         if (array[middle] < search) {
-            first = middle + 1; // Search in the right half
+            first = middle + 1;
         } else if (array[middle] == search) {
-            printf("%d found at location %d.\n", search, middle + 1); // 1-based index
+            printf("%d found at location %d.\n", search, middle + 1);
             break;
         } else {
-            last = middle - 1; // Search in the left half
+            last = middle - 1;
         }
-        middle = (first + last) / 2; // Recalculate the middle index
+        middle = (first + last) / 2;
     }
 
     if (first > last) {
