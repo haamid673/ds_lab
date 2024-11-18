@@ -2,70 +2,67 @@
 #include <stdlib.h>
 #define MAX 50
 
-int queue[MAX];
-int rear = -1;
-int front = -1;
+int queue[MAX], front=-1, rear=-1;
 
 int main() {
-    int choice;
+    int choice, i, item;
     
-    while (1) {
-        printf("\n1. Insert element to queue\n");
-        printf("2. Delete element from queue\n");
-        printf("3. Display all elements of queue\n");
-        printf("4. Quit\n");
-        printf("Enter your choice: ");
+    while(1){
+        printf("menu");
+        printf("1");
+        printf("2");
+        printf("3");
+        printf("4");
+        printf("enter choice:");
         scanf("%d", &choice);
         
-        switch (choice) {
-            case 1: { // Insert element into queue
-                int num;
-                if (rear == MAX - 1) {
-                    printf("Queue Overflow\n");
+        switch(choice) {
+            case 1: {
+                if (rear==MAX-1) {
+                    printf("queue overflow");
                 } else {
-                    if (front == -1) {
-                        front = 0; // Queue is initially empty
+                    if (front==-1) {
+                        front=0;
                     }
-                    printf("Insert the element in queue: ");
-                    scanf("%d", &num);
-                    rear = rear + 1;
-                    queue[rear] = num;
+                    printf("element to be inserted");
+                    scanf("%d", &item);
+                    rear++;
+                    queue[rear]=item;
                 }
                 break;
             }
-
-            case 2: { // Delete element from queue
-                if (front == -1 || front > rear) {
-                    printf("Queue Underflow\n");
+            case 2: {
+                if (front==-1) {
+                    printf("queue underflow");
                 } else {
-                    printf("Deleted element: %d\n", queue[front]);
-                    front = front + 1;
+                    printf("deleted is: %d", queue[front]);
+                    front++;
                 }
                 break;
             }
-
-            case 3: { // Display elements in queue
-                if (front == -1) {
-                    printf("Queue is empty\n");
+            
+            case 3: {
+                if (front==-1 || front>rear) {
+                    printf("queue empty");
                 } else {
-                    printf("Queue is: ");
-                    for (int i = front; i <= rear; i++) {
-                        printf("%d ", queue[i]);
+                    printf("queue is:");
+                    for(i=front; i<=rear;i++) {
+                        printf("%d", queue[i]);
                     }
                     printf("\n");
                 }
                 break;
             }
-
+            
             case 4: {
-                exit(0); // Normal program termination
+                exit(0);
             }
-
             default: {
-                printf("Wrong choice\n");
+                printf("invalid");
             }
         }
+    
     }
-
+    
     return 0;
 }
