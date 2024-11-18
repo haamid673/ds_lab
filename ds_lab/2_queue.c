@@ -32,7 +32,7 @@ int main() {
                 break;
             }
             case 2: {
-                if (front==-1) {
+                if (front==-1 || front>rear) {
                     printf("queue underflow");
                 } else {
                     printf("deleted is: %d", queue[front]);
